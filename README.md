@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Corinna AI - AI Sales Assistant
+
+An AI-powered sales assistant chatbot that can be embedded into any website with just a snippet of code. Built with Next.js, TypeScript, and Tailwind CSS.
+
+![Corinna AI Logo](/public/images/corinna-ai-logo.png)
+
+## Features
+
+- 🤖 AI-powered sales assistant
+- 📝 Lead capture without forms
+- 🎨 Modern UI with dark/light mode
+- 🔒 Authentication with Clerk
+- 💳 Subscription management
+- 🌐 Multi-domain support
+- 📊 Analytics and reporting
+
+## Tech Stack
+
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI + shadcn/ui
+- **Authentication**: Clerk
+- **Database**: PostgreSQL with Prisma
+- **Deployment**: Vercel
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
 
+```bash
+git clone https://github.com/adiadishr/corinna-ai.git
+cd corinna-ai
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Set up environment variables:
+Create a `.env` file in the root directory with the following variables:
+```env
+DATABASE_URL="your_postgresql_url"
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="your_clerk_publishable_key"
+CLERK_SECRET_KEY="your_clerk_secret_key"
+```
+
+4. Run database migrations:
+```bash
+npx prisma migrate dev
+```
+
+5. Start the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+src/
+├── app/                 # Next.js app directory
+│   ├── auth/           # Authentication pages
+│   ├── dashboard/      # Dashboard pages
+│   └── layout.tsx      # Root layout
+├── components/         
+│   ├── ui/            # Reusable UI components
+│   └── forms/         # Form components
+├── lib/               # Utility functions
+├── hooks/             # Custom React hooks
+└── styles/            # Global styles
+```
 
-## Learn More
+## UI Components
 
-To learn more about Next.js, take a look at the following resources:
+The project uses a combination of Radix UI primitives and shadcn/ui components. All components are fully customizable and support both light and dark modes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Key Components:
+- Sidebar Navigation
+- Cards
+- Modals/Sheets
+- Forms
+- Tables
+- Charts
+- Tooltips
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Database Schema
 
-## Deploy on Vercel
+The main entities in the database include:
+- Users
+- Domains
+- ChatBots
+- Campaigns
+- Subscriptions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Reference the Prisma schema for detailed model definitions:
+```typescript:prisma/schema.prisma
+startLine: 16
+endLine: 41
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+For support, email support@corinna.ai or join our Discord community.
+
+---
+
+Built with ❤️ by [Your Team Name]
