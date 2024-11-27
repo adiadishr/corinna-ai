@@ -43,18 +43,16 @@ const ButtonHandler = (props: Props) => {
         return (
             <div className="w-full flex flex-col gap-3 items-center">
                 <Button
-                    type="submit"
+                    type="button"
                     className="w-full"
-                    {...(isName &&
-                        isEmail &&
-                        isPassword && {
-                        onClick: () =>
-                            onGenerateOTP(
-                                getValues('email'),
-                                getValues('password'),
-                                setCurrentStep
-                            ),
-                    })}
+                    disabled={!isName || !isEmail || !isPassword}
+                    onClick={() =>
+                        onGenerateOTP(
+                            getValues('email'),
+                            getValues('password'),
+                            setCurrentStep
+                        )
+                    }
                 >
                     Continue
                 </Button>

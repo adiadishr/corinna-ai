@@ -32,6 +32,7 @@ export const useSignUpForm = () => {
         if (!isLoaded) return
 
         try {
+            setLoading(true)
             await signUp.create({
                 emailAddress: email,
                 password: password,
@@ -40,11 +41,12 @@ export const useSignUpForm = () => {
             await signUp.prepareEmailAddressVerification({ strategy: 'email_code' })
 
             onNext((prev) => prev + 1)
-            alert('running')
+            setLoading(false)
         } catch (error: any) {
+            setLoading(false)
             toast({
                 title: 'Error',
-                description: error.errors[0].longMessage,
+                description: error.errors?.[0]?.longMessage || 'Something went wrong',
             })
         }
     }
